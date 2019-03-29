@@ -15,4 +15,4 @@ const keyFinder = (obj, key) => {
   return keyList[position]
 }
 
-module.exports = keyFinder
+exports.keyFinder = keyFinder

@@ -1,5 +1,5 @@
 /* eslint-env jest */
-const keyFinder = require('./index')
+const { keyFinder } = require('./index')
 
 const key = 'my-key'
 let keyObject
