@@ -4,10 +4,6 @@
 !.vscode/launch.json
 !.vscode/extensions.json
 
-# Feekonfig environment
-config/*.environment.json
-!config/template.environment.json
-
 # Logs
 logs
 *.log

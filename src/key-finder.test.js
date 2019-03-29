@@ -1,18 +1,31 @@
-// finds and returns case insensitive key
-//   useful for getting keys in header objects
-//   where key could be 'Content-Type' or 'content-type'
+/* eslint-env jest */
+const keyFinder = require('./index')
 
-const keyFinder = (obj, key) => {
-  const keyList = Object.keys(obj)
-  const noCaseKeyList = keyList.map(k => k.toLowerCase())
+const key = 'my-key'
+let keyObject
 
-  const position = noCaseKeyList.indexOf(key.toLowerCase())
+describe('keyFinder', () => {
+  beforeEach(() => {
+    keyObject = {
+      'sample-key-1': undefined,
+      'sample-key-2': undefined,
+      'sample-key-3': undefined
+    }
+  })
 
-  if (position === -1) {
-    return undefined
-  }
+  test('returns undefined if no key exists', () => {
+    expect(keyFinder(keyObject, key)).toEqual(undefined)
+  })
 
-  return keyList[position]
-}
+  test('returns key name if key exists', () => {
+    keyObject[key] = undefined
+    expect(keyFinder(keyObject, key)).toEqual(key)
+  })
 
-module.exports = keyFinder
+  test('returns object key name even if in different case', () => {
+    const upperCaseKey = key.toUpperCase()
+    keyObject[upperCaseKey] = undefined
+
+    expect(keyFinder(keyObject, key)).toEqual(upperCaseKey)
+  })
+})

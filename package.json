@@ -4,7 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "jest --watch src",
+    "lint": "standard src/**/*.js",
+    "test": "npm run lint && npm run test:unit",
+    "test:unit": "jest src --coverage"
   },
   "keywords": [],
   "author": "",

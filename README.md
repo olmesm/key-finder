@@ -26,6 +26,9 @@ npm i
 
 # To develop
 npm run dev
+
+# To test
+npm test
 ```
 
 ## To Use
